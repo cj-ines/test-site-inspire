@@ -15,7 +15,7 @@ body {
   margin: auto;
   p {
     text-align: justify;
-    padding: 10px 120px
+    padding: 10px 10%
   }
 
   img {
@@ -27,6 +27,7 @@ body {
 }
 
 .timeline {
+  padding: 15px;
   padding-top: 34px;
   height: 670px;
   margin-bottom: 100px;
@@ -68,10 +69,11 @@ body {
 }
 
 .photo-grid {
-  
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat( auto-fit, minmax(375px, 1fr) );
   gap: 10px;
+  margin: auto;
+  max-width: 1280px;
 
   img {
     transform: scale(0);
@@ -101,7 +103,9 @@ body {
 .circles {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 60px;
+  min-height: 600px;
 
 
   &-item {
@@ -116,7 +120,6 @@ body {
     background-size: cover;
     color: white;
     overflow: hidden;
-    margin-top: -30px;
     background: #000;
 
     button {
@@ -139,11 +142,8 @@ body {
       transition: $transition-duration-base;
     }
 
-  
-
     &.-center {
-      opacity: 1;
-      margin-top: 130px;
+      align-self: flex-end;
     }
 
 
@@ -172,13 +172,14 @@ body {
   }
   background-color: #FDF0ED;
   padding: 25px;
-  height: 847px;
+  min-height: 847px;
   margin-top: 40px;
   
   .cards {
     display: flex;
     justify-content: center;
     margin: auto;
+    flex-wrap: wrap;
     gap: 64px;
     
     .card {
@@ -217,18 +218,35 @@ body {
 }
 
 
-@keyframes play {
+@keyframes zoom {
   1% { transform: scale(0) }
   70% { transform: scale(1.1) }
   100% { transform: scale(1)  }
 }
 
+@keyframes fade {
+  1% { opacity: 0; }
+  100% { opacity: 1 }  
+}
+
+
 .on-enter-animation {
-  transform: scale(0)
+  transform: scale(0);
+}
+
+.on-enter-animation-fade {
+  opacity: 0;
 }
 
 .animation {
-  animation: play 500ms;
+  animation: zoom 500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 200ms;
+}
+
+.animation-fade {
+  animation: fade 500ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-delay: 200ms;
