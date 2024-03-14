@@ -30,19 +30,21 @@ const staggerElementsObserver = new IntersectionObserver(entries => {
 
 staggerElements.forEach(elem => staggerElementsObserver.observe(elem))
 
-
+let done = false
 const numberAnimation = new IntersectionObserver(entries => {
+    
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        let interval;
+        if (entry.isIntersecting && !done) {
             const number = +entry.target.innerText;
             let counter  = 0;
-            console.log(number);
-            const interval = setInterval(() => {
+            interval = setInterval(() => {
                 if (counter <= number) {
                     counter = counter + 60
                     entry.target.innerText = (counter)
                 } else {
                     clearInterval(interval)
+                    done = true;
                     entry.target.innerText = (number)
                 }
             }, 60)
