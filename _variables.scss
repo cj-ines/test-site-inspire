@@ -1,0 +1,29 @@
+$brand: #E0411D;
+
+$brand-100: tint-color($brand, 80%) !default;
+$brand-200: tint-color($brand, 60%) !default;
+$brand-300: tint-color($brand, 40%) !default;
+$brand-400: tint-color($brand, 20%) !default;
+$brand-500: $brand !default;
+$brand-600: shade-color($brand, 20%) !default;
+$brand-700: shade-color($brand, 40%) !default;
+$brand-800: shade-color($brand, 60%) !default;
+$brand-900: shade-color($brand, 80%) !default;
+
+$theme-colors: (
+	"primary": $brand,
+);
+
+$transition-duration-base: 800ms;
+
+$card-title-spacer-y: 1.5em;
+$card-border-radius: 0px;
+$card-title-color: $brand;
+$card-box-shadow:  0px 0px 13px #00000040;
+$card-spacer-y: 36px;
+$card-spacer-x: 36px;
+
+
+$h1-font-size: 45px !default;
+$btn-font-weight: 700;
+$enable-shadows: true;
